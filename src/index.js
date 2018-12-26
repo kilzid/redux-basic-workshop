@@ -1,14 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
+import MyApp from './components/MyApp'
 
 render(
-  <Fragment>
-    <ul>
-      <li>This is a test</li>
-      <li>This is a test</li>
-      <li>This is a test</li>
-    </ul>
-  </Fragment>,
+  <MyApp />,
   document.getElementById('rootAppNode')
 )
 
