@@ -1,12 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import ListItem from '../ListItem/ListItem'
+import './List.scss'
 
-const List = (props) => (
-  <ul>
-    <ListItem id="1" title="test1"/>
-    <ListItem id="2" title="test2"/>
-    <ListItem id="3" title="test3"/>
-  </ul>
+const List = (props) => {
+  return (
+    <ul className="list-page">
+      {props.shows.map((show, index) => {
+          return <ListItem key={index +1} show={show.show} />
+        }) 
+      }
+    </ul>
   )
-  
+}
+List.propTypes = {
+  shows: PropTypes.array.isRequired, 
+}
 export default List
