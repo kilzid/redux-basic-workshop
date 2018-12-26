@@ -1,5 +1,7 @@
 import React from 'react'
 import List from './List/List'
+import Header from './Header/Header'
+
 import data from '../data/shows.json'
 class MyApp extends React.Component {
   constructor(props){
@@ -9,6 +11,9 @@ class MyApp extends React.Component {
     }
   }
 
+  doSearch(searchTerm) {
+    console.log('Search term:', searchTerm)
+  }
   componentDidMount() {
     this.setState(
       (state, props) => ({ shows: data })
@@ -18,6 +23,7 @@ class MyApp extends React.Component {
   render () {
     return (
       <div>
+        <Header doSearch={this.doSearch}/>
         <List shows={ this.state.shows }/>
       </div>
     )
