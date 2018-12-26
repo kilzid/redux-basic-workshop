@@ -1,5 +1,5 @@
 {
-  "name": "most-basic-react-boilerplate",
+  "name": "react-basic-workshop",
   "version": "1.0.0",
   "description": "This is a basic react boilerplate for my react workshops and courses. Please note I'm using ^ on the packages as it is only a boilerplate",
   "main": "index.js",
