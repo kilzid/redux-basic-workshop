@@ -35,13 +35,13 @@ export default class SearchBox extends React.Component {
     const { searchTerm } = this.state;
     const { doSearch } = this.props;
     doSearch(searchTerm);
-    
   }
   render() {
     return (
       <form onSubmit={this.doSearch}>
         <input
           className="input"
+          value={this.state.searchTerm}
           type="text"
           placeholder="Search for a show"
           onChange={this.onSearchChange}

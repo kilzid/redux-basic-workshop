@@ -6,7 +6,7 @@ import './ListItem.scss'
   return(
     <li className="show-card" key={props.show.id}>
       <div>
-        <img src={props.show.image.medium}/>
+        {props.show.image && <img src={props.show.image.medium}/>}
       </div>
       <div>
         <div className="title">{props.show.name}</div>
