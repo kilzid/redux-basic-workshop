@@ -1,0 +1,2 @@
+
+module.hot.accept();

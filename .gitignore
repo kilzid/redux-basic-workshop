@@ -1,0 +1,11 @@
+# Project
+node_modules/
+dist/**.js
+dist/**.css
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
