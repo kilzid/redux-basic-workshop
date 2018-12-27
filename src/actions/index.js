@@ -1,7 +1,7 @@
-import * as SHOWS from './shows'
-import * as SEARCH from './search'
+import * as shows from './shows'
+import * as search from './search'
 
 export {
-  SHOWS,
-  SEARCH,
-};
+  shows,
+  search,
+}

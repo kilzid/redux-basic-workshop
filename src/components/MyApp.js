@@ -55,7 +55,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({ ...actions.SHOWS, ...actions.SEARCH }, dispatch)
+    actions: bindActionCreators({ ...actions.shows, ...actions.search }, dispatch)
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MyApp)
