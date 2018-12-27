@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Hagai Reuveni (arturdnt)",
+  "author": "Doron Kilzi",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.2.0",
