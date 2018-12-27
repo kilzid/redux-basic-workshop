@@ -1,5 +1,5 @@
-import * as SHOWS from './shows'
+import * as shows from './shows'
 
 export {
-  SHOWS,
+  shows,
 };
