@@ -1,5 +1,4 @@
 ## redux-basic-workshop
-___This is the base exercise for the redux-basic workshop.___
 
 ### Exercise - connect myApp to the store:
 1. install dependencies (redux, react-redux)
