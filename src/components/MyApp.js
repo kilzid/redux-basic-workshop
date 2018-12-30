@@ -22,15 +22,8 @@ class MyApp extends React.Component {
   
   doSearch(e) {
     if (e) { e.preventDefault() }
-    fetch(
-      `http://api.tvmaze.com/search/shows?q=${encodeURI(this.props.search.searchTerm)}`,
-      {mode: 'cors'}
-    )
-      .then(res => res.json())
-      .then(data => this.props.actions.setShows(data))
-      .catch(() =>  this.props.actions.setShows([]))
+    this.props.actions.fetchShows()
   }
-
 
   render () {
     return (
