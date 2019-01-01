@@ -1,4 +1,5 @@
 ## redux-basic-workshop
+presentation: https://docs.google.com/presentation/d/12HA0EuEol6y8bSqvYZUXhoSBJY_JBw1H9coyzhNNchM/edit?usp=sharing
 
 ### Exercise - connect myApp to the store:
 1. clone + npm i
