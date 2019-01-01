@@ -10,38 +10,20 @@ class MyApp extends React.Component {
     super(props)
     this.doSearch = this.doSearch.bind(this)
     this.onSearchChange = this.onSearchChange.bind(this)
-    this.state = {
-      searchTerm: '',
-    }
   }
-
   componentDidMount() {
-    this.setState((state, props) => ({
-      searchTerm: 'Oath'
-    }), () => this.doSearch())
+    this.doSearch()
   }
 
   onSearchChange(e) {
     const searchTerm = e.target.value
-    this.setState((state, props) => ({
-      searchTerm
-    }), () => console.log('this.state: ', this.state))
+    this.props.actions.setSearchTerm(searchTerm)
   }
   
   doSearch(e) {
     if (e) { e.preventDefault() }
-    const { searchTerm } = this.state
-    console.log('this.state', this.state)
-    console.log('searchTerm', searchTerm)
-    fetch(
-      `http://api.tvmaze.com/search/shows?q=${encodeURI(searchTerm)}`,
-      {mode: 'cors'}
-    )
-      .then(res => res.json())
-      .then(data => this.props.actions.setShows(data))
-      .catch(() =>  this.props.actions.setShows([]))
+    this.props.actions.fetchShows()
   }
-
 
   render () {
     return (
@@ -60,12 +42,13 @@ class MyApp extends React.Component {
 function mapStateToProps(state) {
   return {
     shows: state.shows,
+    search: state.search,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({ ...actions.shows }, dispatch)
+    actions: bindActionCreators({ ...actions.shows, ...actions.search }, dispatch)
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MyApp)
