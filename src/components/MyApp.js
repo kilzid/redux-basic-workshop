@@ -1,6 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import List from './List/List'
 import Header from './Header/Header'
+import * as actions from '../actions/index'
 
 class MyApp extends React.Component {
   constructor(props){
@@ -8,7 +11,6 @@ class MyApp extends React.Component {
     this.doSearch = this.doSearch.bind(this)
     this.onSearchChange = this.onSearchChange.bind(this)
     this.state = {
-      shows: [],
       searchTerm: '',
     }
   }
@@ -36,8 +38,8 @@ class MyApp extends React.Component {
       {mode: 'cors'}
     )
       .then(res => res.json())
-      .then(data => this.setState(() => ({ shows: data})))
-      .catch(() =>  this.setState(() => ({ shows: []})))
+      .then(data => this.props.actions.setShows(data))
+      .catch(() =>  this.props.actions.setShows([]))
   }
 
 
@@ -45,9 +47,9 @@ class MyApp extends React.Component {
     return (
       <div>
         <Header doSearch={this.doSearch} onSearchChange={this.onSearchChange}/>
-        {this.state.shows.length && <List shows={ this.state.shows }/>}
+        {this.props.shows.data.length && <List shows={ this.props.shows.data }/>}
         {
-          !this.state.shows.length && 
+          !this.props.shows.data.length && 
           <div style={{display: 'flex', justifyContent: 'center', marginTop:'50px' }}> Nothing yet</div>
         }
       </div>
@@ -55,4 +57,15 @@ class MyApp extends React.Component {
   }
 }
 
-export default MyApp
+function mapStateToProps(state) {
+  return {
+    shows: state.shows,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({ ...actions.shows }, dispatch)
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MyApp)
